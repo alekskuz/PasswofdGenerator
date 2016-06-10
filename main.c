@@ -29,8 +29,43 @@ void passgen(int number, int special, int capital, int length, char *pass) {
 					 }
 			 }
 	 }
+
+// ÒÅÑÒ 13
+CTEST(Does_your_password,) {
+	// Given
+	char pass[1000];
+	passgen(0,0,0,1000, pass);
+	int exp_result = 1, result = 1, i;
+	// When
+	for (i = 0; i < 1000; i++) {
+		if (pass[i] == NULL ) {
+			result = 0;
+			break;
+		}
+	}
+	// Then
+	ASSERT_EQUAL(exp_result, result);
+}
+	 
+// ÒÅÑÒ 12
+CTEST(Check_for_extra_characters,_0_0_0) {
+	// Given
+	char pass[1000];
+	passgen(0,0,0,1000, pass);
+	int exp_result = 1, result = 1, i;
+	// When
+	for (i = 0; i < 1000; i++) {
+		if (((pass[i] < 97) || (pass[i] > 122))) {
+			result = 0;
+			break;
+		}
+	}
+	// Then
+	ASSERT_EQUAL(exp_result, result);
+}
+	 
 // ÒÅÑÒ 1
-CTEST(number_suite, number_test) {
+CTEST(Check_for_extra_characters,_1_1_1) {
 	// Given
 	char pass[1000];
 	passgen(1,1,1,1000, pass);
@@ -47,7 +82,7 @@ CTEST(number_suite, number_test) {
 }
 
 // ÒÅÑÒ 2
-CTEST(number_suite2, number_test2) {
+CTEST(Check_for_extra_characters,_1_0_0) {
 	// Given
 	char pass[1000];
 	passgen(1,0,0,1000, pass);
@@ -64,7 +99,7 @@ CTEST(number_suite2, number_test2) {
 }
 
 // ÒÅÑÒ 3
-CTEST(number_suite3, number_test3) {
+CTEST(Check_for_extra_characters,_0_1_0) {
 	// Given
 	char pass[1000];
 	passgen(0,1,0,1000, pass);
@@ -81,7 +116,7 @@ CTEST(number_suite3, number_test3) {
 }
 
 // ÒÅÑÒ 4
-CTEST(number_suite4, number_test4) {
+CTEST(Check_for_extra_characters,_0_0_1) {
 	// Given
 	char pass[1000];
 	passgen(0,0,1,1000, pass);
@@ -98,7 +133,7 @@ CTEST(number_suite4, number_test4) {
 }
 
 // ÒÅÑÒ 5
-CTEST(number_suite5, number_test5) {
+CTEST(Check_for_extra_characters,_1_1_0) {
 	// Given
 	char pass[1000];
 	passgen(1,1,0,1000, pass);
@@ -115,7 +150,7 @@ CTEST(number_suite5, number_test5) {
 }
 
 // ÒÅÑÒ 6
-CTEST(number_suite6, number_test6) {
+CTEST(Check_for_extra_characters,_1_0_1) {
 	// Given
 	char pass[1000];
 	passgen(1,0,1,1000, pass);
@@ -132,7 +167,7 @@ CTEST(number_suite6, number_test6) {
 }
 
 // ÒÅÑÒ 7
-CTEST(number_suite7, number_test7) {
+CTEST(Check_for_extra_characters,_0_1_1) {
 	// Given
 	char pass[1000];
 	passgen(0,1,1,1000, pass);
@@ -149,7 +184,7 @@ CTEST(number_suite7, number_test7) {
 }
 
 // ÒÅÑÒ 8
-CTEST(number_suite8, number_test8) {
+CTEST(Checking_on_the_values_of_the_area,_1_0_0) {
 	// Given
 	char pass[1000];
 	passgen(1,0,0,1000, pass);
@@ -166,7 +201,7 @@ CTEST(number_suite8, number_test8) {
 }
 
 // ÒÅÑÒ 9
-CTEST(number_suite9, number_test9) {
+CTEST(Checking_on_the_values_of_the_area,_0_1_0) {
 	// Given
 	char pass[1000];
 	passgen(0,1,0,1000, pass);
@@ -183,7 +218,7 @@ CTEST(number_suite9, number_test9) {
 }
 
 // ÒÅÑÒ 10
-CTEST(number_suite10, number_test10) {
+CTEST(Checking_on_the_values_of_the_area,_0_0_1) {
 	// Given
 	char pass[1000];
 	passgen(0,0,1,1000, pass);
@@ -200,7 +235,7 @@ CTEST(number_suite10, number_test10) {
 }
 
 // ÒÅÑÒ 11
-CTEST(number_suite11, number_test11) {
+CTEST(Checking_on_the_values_of_the_area,_1_1_1) {
 	// Given
 	char pass[1000];
 	passgen(1,1,1,1000, pass);
